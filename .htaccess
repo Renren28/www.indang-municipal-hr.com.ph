@@ -1,0 +1,89 @@
+# Custom ErrorDocument to display 404.html for 404 errors
+ErrorDocument 404 /indang-sil-system/404.html
+
+# Custom ErrorDocument to display 404.html for blocked access
+ErrorDocument 403 /indang-sil-system/404.html
+
+# Custom Pathing
+RewriteEngine On
+# RewriteRule ^admin/data-management/([^/]+)/$ admin/data-management/index.php?tablelist=$1 [L,QSA]
+# RewriteRule ^admin/data-management/([^/]+)$ admin/data-management/index.php?tablelist=$1 [L,QSA]
+
+RewriteRule ^admin/leave-transaction/view/([^/]+)/$ admin/leave-transaction/view/index.php?leaveappid=$1 [L,QSA]
+RewriteRule ^admin/leave-transaction/view/([^/]+)$ admin/leave-transaction/view/index.php?leaveappid=$1 [L,QSA]
+
+RewriteRule ^admin/departments/employee-list/([^/]+)/$ admin/departments/employee-list/index.php?departmentlabel=$1 [L,QSA]
+RewriteRule ^admin/departments/employee-list/([^/]+)$ admin/departments/employee-list/index.php?departmentlabel=$1 [L,QSA]
+
+RewriteRule ^admin/departments/employee-list/user-info/([^/]+)/$ admin/departments/employee-list/user-info/index.php?empid=$1 [L,QSA]
+RewriteRule ^admin/departments/employee-list/user-info/([^/]+)$ admin/departments/employee-list/user-info/index.php?empid=$1 [L,QSA]
+
+RewriteRule ^admin/departments/employee-list/leave-app-record/([^/]+)/$ admin/departments/employee-list/leave-app-record/index.php?empid=$1 [L,QSA]
+RewriteRule ^admin/departments/employee-list/leave-app-record/([^/]+)$ admin/departments/employee-list/leave-app-record/index.php?empid=$1 [L,QSA]
+
+RewriteRule ^admin/departments/employee-list/leave-app-record/view/([^/]+)/$ admin/departments/employee-list/leave-app-record/view/index.php?leaveappid=$1 [L,QSA]
+RewriteRule ^admin/departments/employee-list/leave-app-record/view/([^/]+)$ admin/departments/employee-list/leave-app-record/view/index.php?leaveappid=$1 [L,QSA]
+
+RewriteRule ^admin/departments/employee-list/leave-data-form/([^/]+)/$ admin/departments/employee-list/leave-data-form/index.php?empid=$1 [L,QSA]
+RewriteRule ^admin/departments/employee-list/leave-data-form/([^/]+)$ admin/departments/employee-list/leave-data-form/index.php?empid=$1 [L,QSA]
+
+RewriteRule ^employee/leaveformrecord/view/([^/]+)/$ employee/leaveformrecord/view/index.php?leaveappid=$1 [L,QSA]
+RewriteRule ^employee/leaveformrecord/view/([^/]+)$ employee/leaveformrecord/view/index.php?leaveappid=$1 [L,QSA]
+RewriteRule ^employee/leaveformrecord/edit/([^/]+)/$ employee/leaveformrecord/edit/index.php?leaveappid=$1 [L,QSA]
+RewriteRule ^employee/leaveformrecord/edit/([^/]+)$ employee/leaveformrecord/edit/index.php?leaveappid=$1 [L,QSA]
+
+#Staff
+
+RewriteRule ^staff/leave-transaction/view/([^/]+)/$ staff/leave-transaction/view/index.php?leaveappid=$1 [L,QSA]
+RewriteRule ^staff/leave-transaction/view/([^/]+)$ staff/leave-transaction/view/index.php?leaveappid=$1 [L,QSA]
+
+RewriteRule ^staff/departments/employee-list/([^/]+)/$ staff/departments/employee-list/index.php?departmentlabel=$1 [L,QSA]
+RewriteRule ^staff/departments/employee-list/([^/]+)$ staff/departments/employee-list/index.php?departmentlabel=$1 [L,QSA]
+
+RewriteRule ^staff/departments/employee-list/user-info/([^/]+)/$ staff/departments/employee-list/user-info/index.php?empid=$1 [L,QSA]
+RewriteRule ^staff/departments/employee-list/user-info/([^/]+)$ staff/departments/employee-list/user-info/index.php?empid=$1 [L,QSA]
+
+RewriteRule ^staff/departments/employee-list/leave-app-record/([^/]+)/$ staff/departments/employee-list/leave-app-record/index.php?empid=$1 [L,QSA]
+RewriteRule ^staff/departments/employee-list/leave-app-record/([^/]+)$ staff/departments/employee-list/leave-app-record/index.php?empid=$1 [L,QSA]
+
+RewriteRule ^staff/departments/employee-list/leave-app-record/view/([^/]+)/$ staff/departments/employee-list/leave-app-record/view/index.php?leaveappid=$1 [L,QSA]
+RewriteRule ^staff/departments/employee-list/leave-app-record/view/([^/]+)$ staff/departments/employee-list/leave-app-record/view/index.php?leaveappid=$1 [L,QSA]
+
+RewriteRule ^staff/departments/employee-list/leave-data-form/([^/]+)/$ staff/departments/employee-list/leave-data-form/index.php?empid=$1 [L,QSA]
+RewriteRule ^staff/departments/employee-list/leave-data-form/([^/]+)$ staff/departments/employee-list/leave-data-form/index.php?empid=$1 [L,QSA]
+
+RewriteRule ^staff/leaveformrecord/view/([^/]+)/$ staff/leaveformrecord/view/index.php?leaveappid=$1 [L,QSA]
+RewriteRule ^staff/leaveformrecord/view/([^/]+)$ staff/leaveformrecord/view/index.php?leaveappid=$1 [L,QSA]
+RewriteRule ^staff/leaveformrecord/edit/([^/]+)/$ staff/leaveformrecord/edit/index.php?leaveappid=$1 [L,QSA]
+RewriteRule ^staff/leaveformrecord/edit/([^/]+)$ staff/leaveformrecord/edit/index.php?leaveappid=$1 [L,QSA]
+# Disable directory listing and deny direct access
+Options -Indexes
+
+# Block direct access to the specified directories
+RewriteEngine On
+
+# Block access to the entire folder and its files
+RewriteRule ^Actions/ - [F,L]
+RewriteRule ^Assets/ - [F,L]
+RewriteRule ^Components/ - [F,L]
+RewriteRule ^Constants/ - [F,L]
+
+# Block access to specific file types within the folders
+RewriteRule ^Actions/.*\.(php|html|txt)$ - [F,L]
+RewriteRule ^Assets/.*\.(php|html|txt)$ - [F,L]
+RewriteRule ^Components/.*\.(php|html|txt)$ - [F,L]
+RewriteRule ^Constants/.*\.(php|html|txt)$ - [F,L]
+
+# Rewrite HTTP to HTTPS (optional, if needed)
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Example rule for department URL (commented out)
+# RewriteRule ^department/([A-Za-z]+)/group/([0-9]+)/uid/([0-9]+)$ department.php?departmentname=$1&group=$2&uid=$3 [L]
+#<a href="/department.php?departmentname=IT/group.php?group=1/&uid=4544">Click me</a>
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)\.html$ $1.php [NC,L]
